@@ -17,13 +17,17 @@ public:
     Client(QWidget *parent = nullptr);
     ~Client();
 
-    void requestMessage();
-    void readMessage();
 private slots:
+    void readMessage();
+    void requestMessage();
     void showError();
 
 private:
+    //Interfaz del GUI
     Ui::Client *ui;
+    //variable socket cliente
     QTcpSocket *clientSocket = nullptr;
+    //canal
+    QDataStream in;
 };
 #endif // CLIENT_H
